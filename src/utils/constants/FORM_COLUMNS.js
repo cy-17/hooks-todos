@@ -1,6 +1,7 @@
 import React from 'react'
 import { Title } from '../../components/Title/Title.component';
 import { Complete } from '../../components/Complete/Complete.component';
+import { Delete } from '../../components/Delete/Delete.component';
 
 // 每一列
 export const FORM_COLUMNS=[
@@ -38,6 +39,7 @@ export const FORM_COLUMNS=[
             return(
                 <>
                     <Complete record={record}/>
+                    <Delete record={record} />
                 </>
             )
         }

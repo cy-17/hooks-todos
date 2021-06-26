@@ -23,12 +23,12 @@ const App = () => {
     <TodoContext.Provider value={[todos,dispatchTodos]}>
       <Row justify="center">
         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-          <Table dataSource={todos} columns={FORM_COLUMNS} />
+          <AddTodoForm />
         </Col>
       </Row>
       <Row justify="center">
         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-          <AddTodoForm />
+          <Table dataSource={todos} columns={FORM_COLUMNS} />
         </Col>
       </Row>
     </TodoContext.Provider>
