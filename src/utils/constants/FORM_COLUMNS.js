@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { Title } from '../../components/Title/Title.component';
 import { Complete } from '../../components/Complete/Complete.component';
 import { Delete } from '../../components/Delete/Delete.component';
@@ -27,7 +28,7 @@ export const FORM_COLUMNS=[
         dataIndex:'date',
         key:'date',
         render:(text,record)=>{
-            return <Title record={record}>{text}</Title>
+            return <Title record={record}>{moment(text).format().slice(0,10)}</Title>
         }
     },
     // 第三列 操作：设置已完成 或 删除

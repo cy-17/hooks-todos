@@ -7,16 +7,21 @@ import './App.css';
 
 import { AddTodoForm } from './components/Form/AddTodoForm.component';
 import { todoReducer } from './utils/functions/formReducer';
+import {getData} from './utils/functions/localStorage'
 
-import { FORM_INITIAL_STATE } from './utils/constants/INITIAL_STATE';
 import { FORM_COLUMNS } from './utils/constants/FORM_COLUMNS';
 
 export const TodoContext=createContext()
 
+// const getData=() => {
+//   let data=JSON.parse(window.localStorage.getItem('FORM_INITIAL_STATE'))
+//   return data===null?FORM_INITIAL_STATE:data
+// }
+
 const App = () => {
   const [todos,dispatchTodos]=useImmerReducer(
     todoReducer,
-    FORM_INITIAL_STATE
+    getData()
   )
 
   return(
