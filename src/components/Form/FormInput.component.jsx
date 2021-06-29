@@ -1,11 +1,11 @@
-import React, { useState, useImperativeHandle } from "react";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 import { Col, Form, Input } from "antd";
 import { TagsOutlined } from "@ant-design/icons";
 
-export const FormInput = ({ setForm, inputRef }) => {
+export const FormInput = forwardRef(({ setForm }, ref) => {
   const [inputVal, setinputVal] = useState();
 
-  useImperativeHandle(inputRef, () => ({
+  useImperativeHandle(ref, () => ({
     // changeVal 就是暴露给父组件的方法
     changeVal: (newVal) => {
       setinputVal(newVal);
@@ -33,4 +33,4 @@ export const FormInput = ({ setForm, inputRef }) => {
       </Form.Item>
     </Col>
   );
-};
+});
