@@ -1,0 +1,18 @@
+{
+    "todoTitle":"任务",
+    "titlePlaceholder":"请输入计划要完成的任务",
+    "selectDate":"选择日期",
+    "add":"添加",
+    "reqSuccess":"请求成功",
+    "reqError":"请求失败，请重试",
+    "delete":"删除",
+    "confirmDelete":"确定删除此项吗？",
+    "done":"已完成",
+    "undone":"未完成",
+    "added":"已添加",
+    "deleted":"已删除",
+    "error":"出现错误",
+    "hideDone":"隐藏已完成",
+    "doneDate":"计划完成日期",
+    "settings":"设置"
+}

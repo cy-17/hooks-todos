@@ -1,0 +1,18 @@
+{
+    "todoTitle":"Title",
+    "titlePlaceholder":"Please enter your task",
+    "selectDate":"select date",
+    "add":"Add",
+    "reqSuccess":"request ok",
+    "reqError":"request failed,try again",
+    "delete":"Delete",
+    "confirmDelete":"Are you sure to delete?",
+    "done":"Done",
+    "undone":"Todo",
+    "added":"Added",
+    "deleted":"Deleted",
+    "error":"Error",
+    "hideDone":"Hide Completed",
+    "doneDate":"Completed date",
+    "settings":"Settings"
+}

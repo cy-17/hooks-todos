@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import React, { useContext } from "react";
 import { TodoContext } from "../../App";
 
 import { Button } from "antd";
 
 export const Complete = ({ record }) => {
+  const { t } = useTranslation();
   const [, dispatchTodos] = useContext(TodoContext);
   const { completed } = record;
   return (
@@ -14,7 +16,7 @@ export const Complete = ({ record }) => {
       }}
     >
       <Button type={completed === "true" ? "default" : "primary"} size="small">
-        {completed === "true" ? "已完成" : "未完成"}
+        {completed === "true" ? `${t("done")}` : `${t("undone")}`}
       </Button>
     </a>
   );

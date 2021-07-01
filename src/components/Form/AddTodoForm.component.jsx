@@ -1,6 +1,8 @@
 import React, { useState, useContext, useRef, useCallback } from "react";
 import ReactDOM from 'react-dom'
 import { Button, Form, Row, Typography } from "antd";
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n.ts'
 
 import { FormInput } from "./FormInput.component";
 import { Calendar } from "./Calendar.component";
@@ -9,26 +11,27 @@ import { TodoContext } from "../../App";
 import { openNotification } from "../../utils/functions/openNotification";
 
 const { Title } = Typography;
-  const delayPromise = (seconds) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (Math.random() < 0.8) resolve("请求成功");
-        else reject("请求失败，请重试");
-      }, seconds * 1000);
-    });
-  };
+
+const delayPromise = (seconds) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() < 0.8) resolve(i18n.t("reqSuccess"));
+      else reject(i18n.t("reqError"));
+    }, seconds * 1000);
+  });
+};
+
 export const AddTodoForm = () => {
+  const { t } = useTranslation();
   const [form, setForm] = useState();
   const [date, setDate] = useState();
   const [loading, setLoading] = useState(false);
   const [, dispatchTodos] = useContext(TodoContext);
   const inputRef = useRef();
   //   const dateRef = useRef();
-
+  
   const entered = date && form ? true : false;
-
-
-
+  
   const formSubmit = useCallback(() => {
     if (form && date && form.trim()) {
       setLoading(true);
@@ -41,7 +44,6 @@ export const AddTodoForm = () => {
             // changeVal就是子组件暴露给父组件的方法
             inputRef.current.changeVal("");
             setForm("");
-            // dateRef.current.changeVal('')
             setDate(null);
             openNotification("bottomLeft", res);
             setLoading(false);
@@ -69,7 +71,7 @@ export const AddTodoForm = () => {
             className="btnMargin"
             loading={loading}
           >
-            点击添加
+            {t("add")}
           </Button>
         </Row>
       </Form>

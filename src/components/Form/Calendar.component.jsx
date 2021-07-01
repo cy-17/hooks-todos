@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Col, DatePicker } from "antd";
-// const { RangePicker } = DatePicker;
+import { useTranslation } from 'react-i18next';
 
 export const Calendar = ({ setDate, date }) => {
   // const [dateVal,setdateVal]=useState()
@@ -19,16 +19,17 @@ export const Calendar = ({ setDate, date }) => {
   //   // setdateVal(val)
   //   // console.log(val.valueOf());
   // };
+  const { t } = useTranslation();
 
   const momentDate = date ? moment(date) : undefined;
-  // console.log("+", date);
+
   return (
     <Col>
       {/* <Form.Item label="选择日期" name="选择日期"> */}
       <DatePicker
         onChange={(moment) => setDate(moment.valueOf())}
         value={momentDate}
-        placeholder="选择日期"
+        placeholder={t("selectDate")}
         className="btnMargin"
       />
       {/* </Form.Item> */}
