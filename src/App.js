@@ -11,21 +11,23 @@ import {getData} from './utils/functions/localStorage'
 import { SetLang } from './components/Lang/ChangeLang.component';
 
 import { FORM_COLUMNS } from './utils/constants/FORM_COLUMNS';
+let skin=true
 const handleSkin = (checked) => {
   if (checked) {
     // 明亮主题
     import('antd/dist/antd.css')
     import ('./App.css')
     skin=!skin
+    console.log(skin);
   } else {
     // 暗色主题
     import('./assets/antd.dark.css')
     import ('./App.css')
     skin=!skin
+    console.log(skin);
   }
 }
 
-let skin=true
 
 export const TodoContext=createContext()
 
@@ -47,7 +49,7 @@ const App = () => {
       <Row>
         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
           <SetLang />
-          <Button onClick={handleSkin(skin)}>click</Button>
+          <Button onClick={()=>{handleSkin(skin)}}>click</Button>
         </Col>
       </Row>
       <Row justify="center">
